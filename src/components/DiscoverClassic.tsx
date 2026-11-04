@@ -84,7 +84,7 @@ export const DiscoverClassic: React.FC<DiscoverClassicProps> = ({
   const nopeOpacity = Math.min(1, Math.max(0, -dragOffset.x / 80));
 
   return (
-    <div className="flex-1 flex flex-col h-full overflow-hidden select-none max-w-lg mx-auto w-full">
+    <div className="flex-1 flex flex-col h-full overflow-hidden select-none max-w-lg min-[900px]:max-w-4xl mx-auto w-full">
       {/* Filtre özeti */}
       <div className="flex items-center gap-2 px-4 pb-3 shrink-0">
         <span className="chip bg-soft !text-ink flex-1 min-w-0 !justify-start !py-2.5 !text-sm !font-semibold">

@@ -48,6 +48,7 @@ export interface SettingsState {
   lang: 'tr' | 'en';
   reelsMode: boolean; // Akış modu (dikey kaydırma)
   displayMode: 'auto' | 'mobile' | 'desktop';
+  design: 'current' | 'paper' | 'ocean';
 }
 
 export interface LighthouseWatchState {

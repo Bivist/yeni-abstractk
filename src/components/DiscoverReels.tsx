@@ -109,7 +109,7 @@ export const DiscoverReels: React.FC<DiscoverReelsProps> = ({
   };
 
   return (
-    <div ref={containerRef} data-tour="disc-stage" className="flex-1 flex flex-col h-full overflow-hidden select-none relative max-w-lg mx-auto w-full">
+    <div ref={containerRef} data-tour="disc-stage" className="flex-1 flex flex-col h-full overflow-hidden select-none relative max-w-lg min-[900px]:max-w-4xl mx-auto w-full">
       {/* Filtre özeti */}
       <div className="flex items-center gap-2 px-4 pb-3 shrink-0">
         <span className="chip bg-soft !text-ink flex-1 min-w-0 !justify-start !py-2.5 !text-sm !font-semibold">

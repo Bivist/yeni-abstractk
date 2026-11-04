@@ -23,7 +23,7 @@ export function enableAnalytics(): void {
 
   // PostHog resmi dizi-yükleyici kalıbı; bu kod yalnızca opt-in sonrasında çalışır.
   const w = window as Window & { posthog?: any };
-  const p: any = function (...args: any[]) { p.push(args); };
+  const p: any = [];
   p._i = [];
   p.init = function (key: string, config: Record<string, unknown>) {
     function stub(target: any, name: string) {

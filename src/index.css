@@ -1,0 +1,287 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ───────────── Tasarım tokenları ─────────────
+   Zemin: soluk nane-gri · Mürekkep: koyu orman yeşili · Vurgu: ibiskus pembesi
+   Pastel ton seti (t1–t5) kartların başlık bandında ve etiketlerde kullanılır. */
+:root {
+  --paper: #edf3ee;
+  --card: #fbfdfb;
+  --soft: #e0eae3;
+  --ink: #0f2a24;
+  --mute: #52695f;
+  --line: #ccdbd1;
+  --edge: #0f2a24;
+  --accent: #d81b6a;
+  --accent-fg: #b8135a;
+  --accent-ink: #ffffff;
+  --ok: #0e7a4f;
+  --t1: #d9f36a; /* limon */
+  --t2: #ffcba8; /* şeftali */
+  --t3: #c4c3ff; /* leylak */
+  --t4: #a8ebe0; /* nane */
+  --t5: #ffc2d9; /* pembe */
+}
+
+.dark {
+  --paper: #0c1613;
+  --card: #14231e;
+  --soft: #1b2e27;
+  --ink: #e8f2ec;
+  --mute: #97b0a4;
+  --line: #26403a;
+  --edge: #35564c;
+  --accent: #ff5c9e;
+  --accent-fg: #ff8dba;
+  --accent-ink: #0c1613;
+  --ok: #4ade9a;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-card: var(--card);
+  --color-soft: var(--soft);
+  --color-ink: var(--ink);
+  --color-mute: var(--mute);
+  --color-line: var(--line);
+  --color-edge: var(--edge);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --color-accent-ink: var(--accent-ink);
+  --color-ok: var(--ok);
+  --color-t1: var(--t1);
+  --color-t2: var(--t2);
+  --color-t3: var(--t3);
+  --color-t4: var(--t4);
+  --color-t5: var(--t5);
+  --color-on-tone: #0f2a24;
+  --font-serif: 'Young Serif', Georgia, serif;
+  --font-sans: 'Figtree', system-ui, -apple-system, sans-serif;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--soft);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 2.5px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@layer components {
+  .hard {
+    box-shadow: 5px 5px 0 0 var(--edge);
+  }
+  .hard-sm {
+    box-shadow: 3px 3px 0 0 var(--edge);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    padding: 0 1.1rem;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.875rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: transform 0.15s ease, background-color 0.15s ease, opacity 0.15s ease;
+  }
+  .btn:active:not(:disabled) {
+    transform: scale(0.96);
+  }
+  .btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: var(--accent-ink);
+  }
+  .btn-ghost {
+    background: var(--soft);
+    color: var(--ink);
+  }
+  .btn-line {
+    border: 1.5px solid var(--edge);
+    color: var(--ink);
+    background: transparent;
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.2rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1.25;
+    color: #0f2a24;
+  }
+
+  .field {
+    width: 100%;
+    min-height: 44px;
+    padding: 0.65rem 0.95rem;
+    border-radius: 14px;
+    background: var(--card);
+    border: 1.5px solid var(--line);
+    color: var(--ink);
+    font-size: 0.9rem;
+    user-select: text;
+  }
+  .field::placeholder {
+    color: var(--mute);
+    opacity: 0.8;
+  }
+  .field:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+
+  .field-label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--mute);
+  }
+
+  .sheet-in {
+    animation: sheetIn 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+}
+
+@keyframes sheetIn {
+  from {
+    transform: translateY(32px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Masaüstünde uygulama ortalanmış bir sütun olarak görünür */
+@media (min-width: 521px) {
+  .app-shell {
+    border-left: 1.5px solid var(--line);
+    border-right: 1.5px solid var(--line);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ───────────── Gizli sürpriz temaları (mantık aynı, yalnızca yeni tokenlara uyarlandı) ───────────── */
+.easter-egg-pink {
+  --paper: #ffeff5;
+  --card: #fffafc;
+  --soft: #ffdceb;
+  --ink: #4a0f2b;
+  --mute: #9b3a68;
+  --line: #f7bfd6;
+  --edge: #4a0f2b;
+  --accent: #e0357f;
+  --accent-fg: #b0125f;
+  --accent-ink: #ffffff;
+}
+.dark .easter-egg-pink {
+  --paper: #1c0814;
+  --card: #2c0d20;
+  --soft: #3f152d;
+  --ink: #fdf2f8;
+  --mute: #f472b6;
+  --line: #551b3d;
+  --edge: #7a2a58;
+  --accent: #ff6fb0;
+  --accent-fg: #ff9bc8;
+  --accent-ink: #1c0814;
+}
+
+.easter-egg-ocean {
+  --paper: #021a2c;
+  --card: #05263d;
+  --soft: #093755;
+  --ink: #e0faff;
+  --mute: #67e8f9;
+  --line: #0c4a6e;
+  --edge: #1a6a91;
+  --accent: #22d3ee;
+  --accent-fg: #67e8f9;
+  --accent-ink: #021a2c;
+}
+.easter-egg-ocean::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse at 40% 15%, rgba(6, 182, 212, 0.16) 0%, transparent 60%),
+    radial-gradient(ellipse at 75% 75%, rgba(2, 132, 199, 0.18) 0%, transparent 60%),
+    linear-gradient(180deg, rgba(6, 182, 212, 0.05) 0%, rgba(2, 26, 44, 0.95) 100%);
+  animation: oceanPulse 8s ease-in-out infinite alternate;
+}
+@keyframes oceanPulse {
+  0% { opacity: 0.75; }
+  100% { opacity: 1; }
+}
+@keyframes oceanBob {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(-4px) rotate(-1.2deg); }
+  50% { transform: translateY(-1px) rotate(0.8deg); }
+  75% { transform: translateY(-3.5px) rotate(0.4deg); }
+}
+.easter-egg-ocean button:not(.no-bob) {
+  animation: oceanBob 4.6s ease-in-out infinite;
+}
+.easter-egg-ocean button:not(.no-bob):nth-of-type(2n) {
+  animation-duration: 5.4s;
+  animation-delay: -1.3s;
+}
+.easter-egg-ocean button:not(.no-bob):nth-of-type(3n) {
+  animation-duration: 4.9s;
+  animation-delay: -2.6s;
+}
+
+.polar-night-active {
+  --paper: #010814;
+  --card: #031224;
+  --soft: #061c36;
+  --ink: #e0f2fe;
+  --mute: #7dd3fc;
+  --line: #0c2d4a;
+  --edge: #1b4f7a;
+  --accent: #2dd4bf;
+  --accent-fg: #5eead4;
+  --accent-ink: #010814;
+}

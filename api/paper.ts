@@ -4,7 +4,6 @@ interface VercelRequest extends IncomingMessage {
   query: Record<string, string | string[] | undefined>;
 }
 
-const SITE = 'https://abstractk.vercel.app';
 const WORK_ID_RE = /^W\d{3,15}$/;
 
 function escapeHtml(value: unknown): string {
@@ -23,6 +22,9 @@ function abstractFromIndex(index: Record<string, number[]> | null | undefined): 
 }
 
 export default async function handler(req: VercelRequest, res: ServerResponse) {
+  const host = req.headers.host || 'localhost';
+  const protocol = String(req.headers['x-forwarded-proto'] || 'https').split(',')[0].trim();
+  const SITE = `${protocol}://${host}`;
   const rawId = req.query.id;
   const id = (Array.isArray(rawId) ? rawId[0] : rawId || '').trim().toUpperCase();
 

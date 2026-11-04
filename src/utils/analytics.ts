@@ -19,7 +19,7 @@ export function trackEvent(
 ): void {
   try {
     window.posthog?.capture(event, {
-      app: 'abstract',
+      app: 'abstract-redesign',
       ...properties
     });
   } catch {

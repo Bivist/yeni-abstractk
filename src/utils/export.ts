@@ -1,8 +1,8 @@
 import { Paper } from '../types';
 import { safeLink } from './openalex';
 import { buildShareUrl } from './share';
-// Logo, derleme sırasında base64 olarak gömülür: popup/iframe/indirilen HTML içinde de her zaman görünür.
-import logoDataUrl from '../assets/logo-print.png?inline';
+// Yeni tasarımın vektör logosu: dış dosyaya ihtiyaç duymadan yazdırma belgesine gömülür.
+const logoDataUrl = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><rect width="128" height="128" rx="30" fill="#edf3ee"/><path d="M64 18 20 108h18l10-22h32l10 22h18L64 18Zm0 31 10 22H54l10-22Z" fill="#0f2a24"/><circle cx="91" cy="34" r="12" fill="#d81b6a"/><path d="M25 111h78" stroke="#d81b6a" stroke-width="6" stroke-linecap="round"/></svg>');
 
 const escapeHtml = (s: unknown) =>
   String(s ?? '').replace(/[&<>"']/g, c => ({

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { SettingsState } from '../types';
-import { Smartphone, Monitor, Camera, X, Trash2, LogIn, LogOut, UserRound, Cloud, Save, Languages, Volume2, PlayCircle, BookOpen, Waves, Compass } from 'lucide-react';
+import { Smartphone, Monitor, Camera, X, Trash2, LogIn, LogOut, UserRound, Cloud, Save, Languages, Volume2, PlayCircle, BookOpen, Waves, Compass, Wind, Droplets, Mountain, Flame, Sparkles } from 'lucide-react';
 
 interface SettingsScreenProps {
   settings: SettingsState;
@@ -207,26 +207,28 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
           <div>
             <p className="text-sm font-bold text-ink mb-1">Sayfa tasarımı</p>
             <p className="text-xs text-mute mb-3">Uygulamanın tüm ekranlarının görünümünü değiştir.</p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+            <div className="element-theme-grid">
               {[
-                { v: 'current' as const, title: 'Mevcut', desc: 'Abstract’ın özgün görünümü', Icon: Compass, swatches: ['#edf3ee', '#0f2a24', '#d81b6a'] },
-                { v: 'paper' as const, title: 'Kâğıt', desc: 'Editoryal, sıcak ve sade', Icon: BookOpen, swatches: ['#f3eee5', '#4d6842', '#302820'] },
-                { v: 'ocean' as const, title: 'Deniz', desc: 'Derin mavi ve deniz feneri', Icon: Waves, swatches: ['#08283b', '#39b8b0', '#e8d7a6'] }
-              ].map(({ v, title, desc, Icon, swatches }) => (
+                { v: 'current' as const, title: 'Abstract', desc: 'Özgün tasarım', Icon: Compass, swatches: ['#edf3ee', '#0f2a24', '#d81b6a'], symbol: '✦' },
+                { v: 'air' as const, title: 'Hava', desc: 'Özgürlük · dinginlik', Icon: Wind, swatches: ['#eaf4f8', '#8bbdd0', '#d7b7ef'], symbol: '風' },
+                { v: 'water' as const, title: 'Su', desc: 'Derinlik · akış', Icon: Droplets, swatches: ['#08283b', '#35b9c7', '#a4e7df'], symbol: '水' },
+                { v: 'earth' as const, title: 'Toprak', desc: 'Doğa · denge', Icon: Mountain, swatches: ['#e9e3d2', '#526b45', '#b58b5c'], symbol: '土' },
+                { v: 'fire' as const, title: 'Ateş', desc: 'Enerji · keşif', Icon: Flame, swatches: ['#291c20', '#e66c42', '#f2bd69'], symbol: '火' },
+                { v: 'paper' as const, title: 'Kâğıt', desc: 'Editoryal · sıcak', Icon: BookOpen, swatches: ['#f3eee5', '#4d6842', '#302820'], symbol: '文' },
+                { v: 'ocean' as const, title: 'Okyanus', desc: 'Deniz feneri · gece', Icon: Waves, swatches: ['#08283b', '#39b8b0', '#e8d7a6'], symbol: '海' }
+              ].map(({ v, title, desc, Icon, swatches, symbol }) => (
                 <button key={v} type="button" onClick={() => onUpdateSettings(prev => ({ ...prev, design: v }))} aria-pressed={(settings.design || 'current') === v}
-                  className={`text-left rounded-2xl border-2 p-3 transition-all ${(settings.design || 'current') === v ? 'border-accent bg-soft' : 'border-line bg-card hover:border-mute'}`}>
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="w-9 h-9 rounded-xl bg-paper border border-line flex items-center justify-center text-ink"><Icon className="w-5 h-5" /></span>
-                    <span className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${(settings.design || 'current') === v ? 'border-accent' : 'border-line'}`}>
-                      {(settings.design || 'current') === v && <span className="w-2.5 h-2.5 rounded-full bg-accent" />}
-                    </span>
-                  </div>
-                  <div className="flex gap-1.5 mb-2">{swatches.map(color => <span key={color} className="w-5 h-5 rounded-full border border-black/10" style={{ backgroundColor: color }} />)}</div>
-                  <b className="block text-sm text-ink">{title}</b>
-                  <span className="block text-[11px] text-mute mt-0.5">{desc}</span>
+                  className={`element-theme-card element-theme-card--${v} ${(settings.design || 'current') === v ? 'is-active' : ''}`}>
+                  <span className="element-theme-symbol" aria-hidden="true">{symbol}</span>
+                  <span className="element-theme-icon"><Icon className="w-5 h-5" /></span>
+                  <span className="element-theme-swatches">{swatches.map(color => <i key={color} style={{ backgroundColor: color }} />)}</span>
+                  <b>{title}</b>
+                  <span className="element-theme-desc">{desc}</span>
+                  <span className="element-theme-selected">{(settings.design || 'current') === v ? '✓ Seçili' : 'Temayı uygula'}</span>
                 </button>
               ))}
             </div>
+            <p className="text-xs text-mute mt-3 leading-relaxed">Dört elementin atmosferi; renkler, yüzeyler ve hareketlerle tüm uygulamaya uygulanır. Seçimin bu cihazda ve hesabınla eşitlenen ayarlarda saklanır.</p>
           </div>
         </div>
         <div className="p-4 space-y-2">

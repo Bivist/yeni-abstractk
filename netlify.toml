@@ -1,0 +1,7 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  # Vite 8, Node 20.19+ veya 22.12+ ister.
+  NODE_VERSION = "22"

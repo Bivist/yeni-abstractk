@@ -32,7 +32,7 @@ export const SheetShell: React.FC<SheetShellProps> = ({
   return (
     <div className={`fixed inset-0 ${z} flex items-end justify-center`} role="dialog" aria-modal="true" aria-label={title}>
       <div className="absolute inset-0 bg-[#06130f]/60 backdrop-blur-[2px]" onClick={dismissible ? onClose : undefined} />
-      <div className="sheet-in relative w-full max-w-[520px] max-h-[92dvh] flex flex-col bg-paper text-ink rounded-t-[28px] border-[1.5px] border-b-0 border-edge overflow-hidden">
+      <div className="sheet-in relative w-full max-w-[520px] min-[900px]:max-w-3xl min-[900px]:rounded-[28px] min-[900px]:border-b-[1.5px] max-h-[92dvh] flex flex-col bg-paper text-ink rounded-t-[28px] border-[1.5px] border-b-0 border-edge overflow-hidden">
         <div className="mx-auto mt-2.5 h-1.5 w-10 rounded-full bg-line shrink-0" />
         <div className="flex items-center justify-between gap-3 px-5 pt-3 pb-3 shrink-0">
           <h2 className="font-serif text-xl text-ink">{title}</h2>

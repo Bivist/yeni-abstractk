@@ -43,7 +43,8 @@ const DEFAULT_SETTINGS: SettingsState = {
   sound: true,
   lang: 'tr',
   reelsMode: false,
-  displayMode: 'auto'
+  displayMode: 'auto',
+  design: 'current'
 };
 
 /** Bu cihazdaki yerel verinin hangi hesaba ait olduğunu tutar (girişte birleştirme / bulut öncelikli kararı için). */
@@ -745,7 +746,7 @@ export default function App() {
   const polarClass = isPolarNight ? 'polar-night-active' : '';
 
   return (
-    <div className={`app-shell flex h-[100dvh] w-full ${desktopMode ? "max-w-none flex-col" : "max-w-[520px] mx-auto flex-col"} bg-paper text-ink relative overflow-hidden transition-colors duration-300 ${eggClass} ${polarClass}`}>
+    <div data-design={settings.design || 'current'} className={`app-shell flex h-[100dvh] w-full ${desktopMode ? "max-w-none flex-col" : "max-w-[520px] mx-auto flex-col"} bg-paper text-ink relative overflow-hidden transition-colors duration-300 ${eggClass} ${polarClass}`}>
       {/* SEO: <head> etiketleri (görsel çıktısı yok). Değerler index.html ile aynıdır. */}
       <Helmet>
         <title>Abstract — Bilimi Kaydırarak Keşfet</title>

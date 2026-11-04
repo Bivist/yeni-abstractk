@@ -40,7 +40,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
   const dateStr = new Date().toLocaleDateString('tr-TR', { weekday: 'long', day: 'numeric', month: 'long' });
 
   return (
-    <div className="flex-1 min-h-0 overflow-y-auto overscroll-contain px-5 pb-8 space-y-6 max-w-lg mx-auto w-full select-none">
+    <div className="flex-1 min-h-0 overflow-y-auto overscroll-contain px-5 pb-8 space-y-6 max-w-6xl mx-auto w-full select-none">
       {/* ── Karşılama ── */}
       <section className="pt-2">
         <p className="text-sm text-mute capitalize">{dateStr}</p>

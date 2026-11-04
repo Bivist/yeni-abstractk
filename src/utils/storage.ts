@@ -41,7 +41,7 @@ export function sanitizeSettings(raw: unknown, defaults: SettingsState): Setting
     lang: raw.lang === 'en' || raw.lang === 'tr' ? raw.lang : defaults.lang,
     reelsMode: typeof raw.reelsMode === 'boolean' ? raw.reelsMode : defaults.reelsMode,
     displayMode: raw.displayMode === 'mobile' || raw.displayMode === 'desktop' || raw.displayMode === 'auto' ? raw.displayMode : defaults.displayMode,
-    design: raw.design === 'paper' || raw.design === 'ocean' || raw.design === 'current' ? raw.design : defaults.design
+    design: ['current', 'paper', 'ocean', 'air', 'water', 'earth', 'fire'].includes(raw.design) ? raw.design : defaults.design
   };
 }
 

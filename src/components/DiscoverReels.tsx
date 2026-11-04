@@ -44,6 +44,11 @@ export const DiscoverReels: React.FC<DiscoverReelsProps> = ({
 
   const touchStartRef = useRef<{ x: number; y: number; time: number }>({ x: 0, y: 0, time: 0 });
   const lastTapRef = useRef<number>(0);
+  const singleTapTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => () => {
+    if (singleTapTimerRef.current) clearTimeout(singleTapTimerRef.current);
+  }, []);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const currentPaper = queue[currentIndex];
@@ -81,17 +86,31 @@ export const DiscoverReels: React.FC<DiscoverReelsProps> = ({
     const absY = Math.abs(deltaY);
 
     // Çift dokunma: hızlı beğeni
-    if (absX < 8 && absY < 8) {
+    if (absX < 10 && absY < 10) {
       const now = Date.now();
-      if (now - lastTapRef.current < 300) {
+      if (now - lastTapRef.current < 280) {
+        if (singleTapTimerRef.current) clearTimeout(singleTapTimerRef.current);
+        singleTapTimerRef.current = null;
+        lastTapRef.current = 0;
         if (containerRef.current) {
           const rect = containerRef.current.getBoundingClientRect();
           setDoubleTapHeart({ x: e.clientX - rect.left, y: e.clientY - rect.top });
           setTimeout(() => setDoubleTapHeart(null), 800);
         }
         handleLike();
+      } else {
+        lastTapRef.current = now;
+        if (singleTapTimerRef.current) clearTimeout(singleTapTimerRef.current);
+        // Tek dokunuş ayrıntıları açar. Kısa bekleme, çift dokunuşla beğeniyi ayırt eder;
+        // kaydırma hareketleri bu kola hiç girmez.
+        singleTapTimerRef.current = setTimeout(() => {
+          if (currentPaper) {
+            SFX.up();
+            onOpenDetails(currentPaper);
+          }
+          singleTapTimerRef.current = null;
+        }, 280);
       }
-      lastTapRef.current = now;
       return;
     }
 

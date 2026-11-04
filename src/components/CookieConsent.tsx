@@ -95,9 +95,12 @@ export function CookieConsent() {
             </div>
             <p className="mt-3 text-[11px] leading-relaxed text-mute">
               {english
-                ? 'You can change your choice at any time using Privacy settings. See the Privacy Policy and Cookie Policy for more information.'
-                : 'Tercihinizi istediğiniz zaman Gizlilik ayarları bölümünden değiştirebilirsiniz. Ayrıntılar için Gizlilik Politikası ve Çerez Politikası metinlerine bakın.'}
+                ? 'You can change your choice at any time using Privacy settings. Read the Privacy Policy and Cookie Policy for more information.'
+                : 'Tercihinizi istediğiniz zaman Gizlilik ayarları bölümünden değiştirebilirsiniz. Ayrıntılar için Gizlilik ve Çerez Politikası metinlerini okuyabilirsiniz.'}
             </p>
+            <a href="/legal/" className="mt-2 inline-flex text-xs font-bold text-ink underline underline-offset-4">
+              {english ? 'Privacy, cookies & legal terms' : 'Gizlilik, çerezler ve yasal metinler'} →
+            </a>
           </section>
         </div>
       )}

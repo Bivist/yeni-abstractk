@@ -318,6 +318,13 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
           ? (langDict.privacy_note_account || 'Veriler hesabına bağlı olarak güvenle saklanır; yalnızca sen erişebilirsin.')
           : (langDict.privacy_note || 'Veriler yalnızca bu cihazın tarayıcısında saklanır.')}
       </p>
+      <section className="mt-5 mb-4 rounded-[22px] border border-line bg-card p-4">
+        <h2 className="font-serif text-lg text-ink mb-2">{en ? 'Legal information' : 'Yasal bilgilendirme'}</h2>
+        <p className="text-xs text-mute leading-relaxed mb-3">{en ? 'Privacy, cookies, terms and data protection information.' : 'Gizlilik, çerezler, kullanım koşulları ve kişisel verilerin korunması hakkında.'}</p>
+        <a href="/legal/" className="inline-flex min-h-10 items-center rounded-full border border-edge px-4 text-sm font-bold text-ink hover:bg-soft">
+          {en ? 'View legal documents' : 'Yasal metinleri görüntüle'} →
+        </a>
+      </section>
       <footer className="mt-4 pt-4 text-center border-t border-line">
         <p className="text-xs text-mute">© 2026 Binali. Her hakkı saklıdır.</p>
       </footer>

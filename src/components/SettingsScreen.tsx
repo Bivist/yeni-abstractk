@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { SettingsState } from '../types';
-import { Smartphone, Monitor, Camera, X, Trash2, LogIn, LogOut, UserRound, Cloud, Save, Languages, Volume2, PlayCircle } from 'lucide-react';
+import { Smartphone, Monitor, Camera, X, Trash2, LogIn, LogOut, UserRound, Cloud, Save, Languages, Volume2, PlayCircle, BookOpen, Waves, Compass } from 'lucide-react';
 
 interface SettingsScreenProps {
   settings: SettingsState;
@@ -203,6 +203,32 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
 
       {/* ── Görünüm ── */}
       <Group title="Görünüm">
+        <div className="p-4 space-y-3">
+          <div>
+            <p className="text-sm font-bold text-ink mb-1">Sayfa tasarımı</p>
+            <p className="text-xs text-mute mb-3">Uygulamanın tüm ekranlarının görünümünü değiştir.</p>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+              {[
+                { v: 'current' as const, title: 'Mevcut', desc: 'Abstract’ın özgün görünümü', Icon: Compass, swatches: ['#edf3ee', '#0f2a24', '#d81b6a'] },
+                { v: 'paper' as const, title: 'Kâğıt', desc: 'Editoryal, sıcak ve sade', Icon: BookOpen, swatches: ['#f3eee5', '#4d6842', '#302820'] },
+                { v: 'ocean' as const, title: 'Deniz', desc: 'Derin mavi ve deniz feneri', Icon: Waves, swatches: ['#08283b', '#39b8b0', '#e8d7a6'] }
+              ].map(({ v, title, desc, Icon, swatches }) => (
+                <button key={v} type="button" onClick={() => onUpdateSettings(prev => ({ ...prev, design: v }))} aria-pressed={(settings.design || 'current') === v}
+                  className={`text-left rounded-2xl border-2 p-3 transition-all ${(settings.design || 'current') === v ? 'border-accent bg-soft' : 'border-line bg-card hover:border-mute'}`}>
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="w-9 h-9 rounded-xl bg-paper border border-line flex items-center justify-center text-ink"><Icon className="w-5 h-5" /></span>
+                    <span className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${(settings.design || 'current') === v ? 'border-accent' : 'border-line'}`}>
+                      {(settings.design || 'current') === v && <span className="w-2.5 h-2.5 rounded-full bg-accent" />}
+                    </span>
+                  </div>
+                  <div className="flex gap-1.5 mb-2">{swatches.map(color => <span key={color} className="w-5 h-5 rounded-full border border-black/10" style={{ backgroundColor: color }} />)}</div>
+                  <b className="block text-sm text-ink">{title}</b>
+                  <span className="block text-[11px] text-mute mt-0.5">{desc}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
         <div className="p-4 space-y-2">
           <p className="text-xs text-mute">Ekran düzeni</p>
           <Segmented

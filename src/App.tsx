@@ -13,6 +13,7 @@ import { authEnabled } from './lib/supabase';
 import { pullCloud, pushCloud, mergeSnapshots, type UserSnapshot } from './utils/cloudSync';
 import { signOutUser, updateDisplayName, uploadAvatar, removeAvatar } from './utils/auth';
 import { trackEvent } from './utils/analytics';
+import { CookieConsent } from './components/CookieConsent';
 
 import { IntroSplash } from './components/IntroSplash';
 import { TopBar } from './components/TopBar';
@@ -939,6 +940,8 @@ export default function App() {
           </button>
         </div>
       )}
+
+      <CookieConsent />
 
       {/* Duyarlı gezinme */}
       <BottomNav currentTab={currentTab} onSelectTab={setCurrentTab} langDict={langDict} likesCount={likedPapers.length} desktop={desktopMode} />

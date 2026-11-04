@@ -1,6 +1,9 @@
 import type { IncomingMessage, ServerResponse } from 'node:http';
 
-export default async function handler(_req: IncomingMessage, res: ServerResponse) {
+export default async function handler(req: IncomingMessage, res: ServerResponse) {
+  const host = req.headers.host || 'localhost';
+  const protocol = String(req.headers['x-forwarded-proto'] || 'https').split(',')[0].trim();
+  const site = `${protocol}://${host}`;
   try {
     const params = new URLSearchParams({
       filter: 'has_abstract:true,type:article',
@@ -19,8 +22,8 @@ export default async function handler(_req: IncomingMessage, res: ServerResponse
       .filter((id: string) => /^W\d{3,15}$/.test(id));
 
     const entries = [
-      '  <url><loc>https://abstractk.vercel.app/</loc></url>',
-      ...urls.map((id: string) => `  <url><loc>https://abstractk.vercel.app/paper/${id}</loc></url>`)
+      `  <url><loc>${site}/</loc></url>`,
+      ...urls.map((id: string) => `  <url><loc>${site}/paper/${id}</loc></url>`)
     ];
     const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries.join('\n')}\n</urlset>`;
 

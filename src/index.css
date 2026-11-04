@@ -285,3 +285,137 @@ body {
   --accent-fg: #5eead4;
   --accent-ink: #010814;
 }
+
+
+/* ───────────── Kullanıcı tarafından seçilebilen sayfa tasarımları ─────────────
+   Varsayılan "current" mevcut arayüzü değiştirmez. Diğer iki görünüm aynı
+   bileşenleri kullanır; böylece filtreler, makaleler ve hesap işlevleri ortak kalır. */
+.app-shell[data-design="paper"] {
+  --paper: #f3eee5;
+  --card: #fffdf9;
+  --soft: #e9e1d5;
+  --ink: #302820;
+  --mute: #786c5f;
+  --line: #e1d5c6;
+  --edge: #d6c8b7;
+  --accent: #4d6842;
+  --accent-fg: #405a36;
+  --accent-ink: #fffdf8;
+  --ok: #4d6842;
+  --t1: #e4eadc;
+  --t2: #eee1cf;
+  --t3: #e8dfd4;
+  --t4: #dce8df;
+  --t5: #eee2d8;
+  background-image: radial-gradient(ellipse at 12% 0%, rgba(255,255,255,.72), transparent 42%);
+}
+.dark .app-shell[data-design="paper"] {
+  --paper: #211f1b;
+  --card: #2c2923;
+  --soft: #38332b;
+  --ink: #f2eadf;
+  --mute: #b8aa98;
+  --line: #4b4338;
+  --edge: #655a4a;
+  --accent: #a9bd91;
+  --accent-fg: #c0d1aa;
+  --accent-ink: #1c2418;
+  --t1: #3e4b36;
+  --t2: #514438;
+  --t3: #4b443e;
+  --t4: #344b40;
+  --t5: #514039;
+}
+.app-shell[data-design="paper"] .font-serif {
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: -0.025em;
+}
+.app-shell[data-design="paper"] article,
+.app-shell[data-design="paper"] [role="dialog"],
+.app-shell[data-design="paper"] .bg-card {
+  border-radius: 22px;
+}
+.app-shell[data-design="paper"] .hard,
+.app-shell[data-design="paper"] .hard-sm {
+  box-shadow: 0 10px 26px rgba(65, 49, 31, .09);
+}
+.app-shell[data-design="paper"] nav > div {
+  box-shadow: 0 5px 18px rgba(65, 49, 31, .06);
+}
+.app-shell[data-design="paper"] .btn-primary {
+  background: var(--accent);
+}
+
+.app-shell[data-design="ocean"] {
+  --paper: #08283b;
+  --card: #10394e;
+  --soft: #0b3147;
+  --ink: #e8f3f2;
+  --mute: #a2c1c7;
+  --line: #245267;
+  --edge: #367287;
+  --accent: #54c5bb;
+  --accent-fg: #79d9d0;
+  --accent-ink: #062633;
+  --ok: #70d5bd;
+  --t1: #c5e7dc;
+  --t2: #e8d7a6;
+  --t3: #b9d7e4;
+  --t4: #8fd2ca;
+  --t5: #d7c6b2;
+  background-image:
+    radial-gradient(ellipse at 82% 5%, rgba(73, 183, 188, .18), transparent 38%),
+    radial-gradient(ellipse at 8% 88%, rgba(14, 95, 132, .26), transparent 45%);
+}
+.dark .app-shell[data-design="ocean"] {
+  --paper: #041b2b;
+  --card: #0a2a3e;
+  --soft: #082338;
+  --ink: #e8f6f4;
+  --mute: #91b8c1;
+  --line: #1b465c;
+  --edge: #28627a;
+  --accent: #62d2c6;
+  --accent-fg: #8be4d9;
+  --accent-ink: #03202d;
+  --t1: #244c4e;
+  --t2: #554d38;
+  --t3: #294b5d;
+  --t4: #20544f;
+  --t5: #51443a;
+}
+.app-shell[data-design="ocean"]::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  top: 7%;
+  right: -38px;
+  width: 230px;
+  height: 300px;
+  opacity: .12;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 240' fill='none' stroke='%23a9e7df' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M90 38 67 208h46L90 38Z'/%3E%3Cpath d='M73 94h34M70 126h40M66 160h48M61 208h58M78 80h24l-4-24H82l-4 24Z'/%3E%3Cpath d='M90 22V8M78 28 35 8M102 28l43-20'/%3E%3Cpath d='M24 218q18-10 36 0t36 0 36 0 36 0'/%3E%3C/svg%3E");
+}
+.app-shell[data-design="ocean"] .font-serif {
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: -0.02em;
+}
+.app-shell[data-design="ocean"] article,
+.app-shell[data-design="ocean"] .bg-card {
+  border-radius: 20px;
+  box-shadow: 0 12px 28px rgba(0, 12, 22, .16);
+}
+.app-shell[data-design="ocean"] .hard,
+.app-shell[data-design="ocean"] .hard-sm {
+  box-shadow: 0 8px 22px rgba(0, 12, 22, .18);
+}
+.app-shell[data-design="ocean"] .chip {
+  color: #08283b;
+}
+.app-shell[data-design="ocean"] .btn-primary {
+  background: var(--accent);
+  color: var(--accent-ink);
+}

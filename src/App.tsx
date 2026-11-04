@@ -751,7 +751,6 @@ export default function App() {
         <title>Abstract — Bilimi Kaydırarak Keşfet</title>
         <meta name="description" content="Akademik makaleleri Tinder ve Instagram Reels tarzı dokunmatik kaydırma ile keşfetme, beğenme, klasörleme ve paylaşma uygulaması." />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
-        <link rel="canonical" href="https://abstractk.vercel.app/" />
       </Helmet>
 
       {/* 3D Three.js Easter Egg Canvas */}

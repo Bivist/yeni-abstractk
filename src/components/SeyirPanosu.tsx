@@ -32,7 +32,7 @@ export const SeyirPanosu: React.FC<SeyirPanosuProps> = ({ readingHistory, likedP
   }, [likedPapers]);
 
   return (
-    <div className="flex-1 min-h-0 overflow-y-auto px-5 pb-10 max-w-lg mx-auto w-full space-y-5 select-none">
+    <div className="flex-1 min-h-0 overflow-y-auto px-5 pb-10 max-w-lg min-[900px]:max-w-5xl mx-auto w-full space-y-5 select-none">
       <h1 className="font-serif text-[32px] leading-none text-ink">Okuma istatistiklerim</h1>
 
       <div className="grid grid-cols-3 gap-2.5 text-center">

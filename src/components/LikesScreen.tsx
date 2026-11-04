@@ -54,7 +54,7 @@ export const LikesScreen: React.FC<LikesScreenProps> = ({
   const selectedPapers = likedPapers.filter(p => selectedIds.has(p.id));
 
   return (
-    <div className="flex-1 flex flex-col h-full overflow-hidden px-5 max-w-lg mx-auto w-full select-none">
+    <div className="flex-1 flex flex-col h-full overflow-hidden px-5 max-w-lg min-[900px]:max-w-5xl mx-auto w-full select-none">
       {/* Başlık */}
       <div className="pb-3 space-y-3">
         <div>

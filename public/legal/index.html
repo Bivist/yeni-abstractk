@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Abstract gizlilik, çerez, KVKK, GDPR ve kullanım koşulları.">
+<title>Yasal Bilgilendirme — Abstract</title>
+<style>
+:root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#17352d;background:#eef3ef;font-synthesis:none}
+*{box-sizing:border-box}body{margin:0;line-height:1.7}.page{max-width:980px;margin:36px auto;padding:clamp(20px,5vw,56px);background:#fff;border:1px solid #d8e4dc;border-radius:28px;box-shadow:0 18px 60px #163c2c12}
+a{color:#08786b;text-underline-offset:3px}a:hover{text-decoration-thickness:2px}.back{font-size:.9rem;font-weight:650;text-decoration:none}
+h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.1;letter-spacing:-.05em;margin:.8em 0 .3em;color:#153a30}
+h2{font-size:1.45rem;line-height:1.25;margin:2.2em 0 .65em;padding-bottom:.45em;border-bottom:1px solid #e1eae4;color:#174a3d}
+h3{font-size:1.05rem;margin:1.5em 0 .35em;color:#236454}
+p,li{font-size:.97rem;color:#344b42}li{margin:.35em 0}.meta,.warning{padding:16px 18px;border-radius:16px;background:#f0f6f2;margin:20px 0}.warning{background:#fff7e9;border-left:4px solid #c48a38}.meta strong{color:#173a30}
+nav{display:flex;flex-wrap:wrap;gap:9px;margin:22px 0 30px}nav a{padding:8px 12px;border:1px solid #d8e4dc;border-radius:999px;text-decoration:none;font-size:.85rem;font-weight:650}
+.lang{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:#7a8b80;margin-top:2.5em}
+hr{border:0;border-top:1px solid #e1eae4;margin:38px 0}
+.small{font-size:.85rem;color:#667a70}footer{margin-top:50px;padding-top:18px;border-top:1px solid #e1eae4;color:#6c7d74;font-size:.82rem}
+@media(max-width:600px){.page{margin:0;border-radius:0;border:0;min-height:100vh}nav{gap:6px}nav a{font-size:.78rem}}
+</style></head>
+<body><main class="page">
+<a class="back" href="/">← Abstract'a dön / Back to Abstract</a>
+<h1>Yasal Bilgilendirme</h1>
+<p>Gizlilik, çerezler, kişisel verilerin korunması ve kullanım koşulları / Privacy, cookies, data protection and terms of use.</p>
+<div class="meta"><strong>Yayıncı / Publisher:</strong> Binali<br><strong>İletişim / Contact:</strong> İletişim kanalı daha sonra eklenecektir. / A contact channel will be provided at a later date.<br><strong>Son güncelleme / Last updated:</strong> 5 Kasım 2026</div>
+<div class="warning"><strong>Önemli yayın notu / Important publication note</strong><br>Bu metinler Abstract'ın mevcut kodunda gözlemlenen işlevlere göre hazırlanmış uyarlama taslaklarıdır; hukuki görüş veya mevzuata uyum garantisi değildir. İletişim kanalı, veri sorumlusunun tam yasal kimliği, hizmet sağlayıcıların gerçek sunucu bölgeleri, sözleşmeleri, saklama süreleri ve silme süreçleri doğrulanmadan nihai hukuki metin olarak değerlendirilmemelidir.<br><br>These are tailored working drafts based on features observed in the current Abstract code. They are not legal advice or a compliance guarantee. Do not treat them as final until the controller's full legal identity and contact channel, provider locations and agreements, retention periods and deletion processes have been verified.</div>
+<nav><a href="#privacy">Gizlilik / Privacy</a><a href="#cookies">Çerezler / Cookies</a><a href="#terms">Kullanım / Terms</a><a href="#kvkk">KVKK</a><a href="#gdpr">GDPR</a></nav>
+
+<section id="privacy">
+<h2>1. Gizlilik Politikası / Privacy Policy</h2>
+<p>Abstract, akademik yayınları keşfetmek, makaleleri beğenmek, klasörlemek ve okuma geçmişini düzenlemek için sunulan bir uygulamadır. Bu politika, Abstract kullanılırken işlenebilecek verileri, amaçları ve hizmet sağlayıcıları açıklar.</p>
+<h3>İşlenen veri kategorileri ve amaçlar</h3>
+<ul>
+<li><strong>Hesap ve kimlik bilgileri:</strong> E-posta adresi, Supabase kullanıcı kimliği, görünen ad ve Google ile giriş tercih edildiğinde sağlayıcıdan gelen temel profil bilgileri; hesap oluşturma, kimlik doğrulama ve hesabı yönetme amacıyla.</li>
+<li><strong>Profil görseli:</strong> Kullanıcının yüklediği fotoğraf, uygulamadaki işlemde 320 piksel boyutuna küçültülerek JPEG biçiminde Supabase Storage'a yüklenir; profil görseli bağlantısı kullanıcı metadata alanında tutulur.</li>
+<li><strong>Kullanıcı kütüphanesi ve tercihler:</strong> Beğenilen makaleler, klasörler, okuma geçmişi, okuma serisi ve ayarlar. Misafir kullanımında tarayıcı depolaması; oturum açıldığında Supabase üzerinden bulut eşitlemesi kullanılır.</li>
+<li><strong>Arama bilgileri:</strong> Akademik yayın sonuçlarını getirmek için arama terimleri ve filtreler OpenAlex'e iletilir.</li>
+<li><strong>Analitik verileri:</strong> Yalnızca isteğe bağlı analitiğe izin verilirse PostHog'a uygulama etkileşimleri ve sayfa/sekme görüntüleme olayları gönderilebilir. Mevcut yapılandırmada otomatik yakalama ve oturum kaydı kapalıdır.</li>
+</ul>
+<h3>Hizmet sağlayıcılar ve veri aktarımı</h3>
+<p>Abstract'ın mevcut kodunda Supabase (kimlik doğrulama, veritabanı ve dosya depolama), Google (Google ile giriş), OpenAlex (akademik yayın arama) ve analitik izni verilirse PostHog (kullanım analitiği) kullanımı görülmektedir. Bu hizmet sağlayıcıların gerçek veri merkezi bölgeleri, alt işleyenleri, veri işleme sözleşmeleri ve uluslararası aktarım mekanizmaları bu metnin hazırlanması sırasında bağımsız olarak doğrulanmamıştır. Bu nedenle belirli bir aktarım güvencesinin mevcut olduğu iddia edilmez. Yurt dışına aktarım varsa KVKK'nın yürürlükteki 9. maddesi ve GDPR Bölüm V dahil uygulanabilir kurallar ayrıca değerlendirilmelidir.</p>
+<h3>Hukuki dayanaklar</h3>
+<p>Her işleme amacı için hukuki dayanak ayrı belirlenmelidir. Somut faaliyete göre sözleşmenin kurulması veya ifası, hukuki yükümlülük, hakkın tesisi/kullanılması/korunması, koşulları varsa meşru menfaat ve isteğe bağlı analitik için rıza gündeme gelebilir. Bu taslak, tüm veri işleme faaliyetleri için tek ve kesin bir hukuki dayanak ileri sürmez.</p>
+<h3>Saklama ve güvenlik</h3>
+<p>Misafir verileri tarayıcı depolamasında; hesap ve eşitlenen veriler ilgili hizmet sağlayıcıların sistemlerinde tutulur. Kesin saklama süreleri, yedeklerin silinme döngüsü, hesap kapatma ve avatar dosyasının tamamen silinmesi süreci doğrulanmalıdır. Veriler, ilgili amaç için gerekli süre ve uygulanabilir hukuki yükümlülükler boyunca tutulmalı; sonrasında silinmeli, yok edilmeli veya anonimleştirilmelidir. Uygulamadaki oturumu kapatma işlemi, tek başına sunucudaki hesabın ve tüm ilişkili verilerin silindiği anlamına gelmez.</p>
+<h3>Haklar ve başvuru</h3>
+<p>Uygulanabilir mevzuata göre kişisel verilerinize erişme, düzeltme, silme, işlemeyi kısıtlama, işlemeye itiraz etme, veri taşınabilirliği, rızayı geri çekme ve yetkili denetim makamına şikâyette bulunma haklarına sahip olabilirsiniz. Türkiye'deki kullanıcıların KVKK m.11 kapsamındaki hakları saklıdır. Başvuru kanalı: <strong>İletişim kanalı daha sonra eklenecektir.</strong></p>
+<p class="lang">English</p>
+<p>Abstract helps users discover scholarly publications and organize papers through likes, folders and reading history. Depending on your use, we may process account email, Supabase user ID, display name and basic Google sign-in profile information; uploaded profile images; saved papers, folders, reading history, reading streak and settings; search terms and filters sent to OpenAlex; and PostHog usage events only if you opt in to optional analytics. Profile images are resized to 320 pixels and converted to JPEG before being uploaded to Supabase Storage. Signed-in users' library data is synchronized through Supabase; guest data is stored in browser storage.</p>
+<p>Potential providers are Supabase, Google, OpenAlex and PostHog (only after analytics opt-in). Their actual hosting regions, subprocessors, data-processing agreements and international transfer mechanisms have not yet been independently verified. No specific transfer safeguard is claimed. The legal basis for each processing purpose must be documented separately; depending on the facts, possible bases may include contract necessity, legal obligation, legitimate interests where permitted, and consent for optional analytics. Exact retention periods, backup deletion cycles and complete account/avatar deletion procedures require verification.</p>
+<p>Subject to applicable law, you may have rights to access, rectify, erase, restrict or object to processing, data portability, withdraw consent and lodge a complaint with a supervisory authority. Contact: <strong>A contact channel will be provided at a later date.</strong></p>
+</section>
+
+<hr><section id="cookies">
+<h2>2. Çerez ve Tarayıcı Depolama Politikası / Cookie & Browser Storage Policy</h2>
+<p>Abstract, uygulamanın temel işlevlerini çalıştırmak ve kullanıcı tercihlerini hatırlamak için tarayıcı depolaması kullanır. Tarayıcı depolamasındaki her kayıt teknik olarak HTTP çerezi değildir; localStorage gibi teknolojiler de cihazda bilgi saklayabilir veya bu bilgilere erişebilir.</p>
+<h3>Depolama türleri</h3>
+<ul>
+<li><strong>Zorunlu/işlevsel depolama:</strong> Uygulama ayarları, beğeniler, klasörler, okuma geçmişi, misafir tercihi ve Supabase oturumunun sürdürülmesi gibi temel işlevlerde kullanılabilir.</li>
+<li><strong>İsteğe bağlı analitik:</strong> Kullanıcı kabul ederse PostHog analitiği yüklenir ve uygulama etkileşimleri gibi olayları alabilir. Mevcut yapılandırmada otomatik yakalama ve oturum kaydı kapalıdır.</li>
+</ul>
+<h3>Tercihlerin yönetimi</h3>
+<p>İlk kullanımda isteğe bağlı analitiği reddedebilir veya kabul edebilirsiniz. Tercihinizi daha sonra uygulamadaki “Gizlilik ayarları” kontrolünden değiştirebilirsiniz. Analitik izni temel hizmetin sunulması için zorunlu değildir. Tarayıcı ayarlarından depolanan verileri silebilir veya engelleyebilirsiniz; zorunlu depolamayı engellemek giriş ve eşitleme gibi işlevleri etkileyebilir.</p>
+<p>Kesin çerez/localStorage anahtar listesi, süreler ve sağlayıcıların ek depolama kullanımları dağıtım ortamında ayrıca envanterlenmelidir. Bu sayfa doğrulanmamış çerez isimleri veya süreleri uydurmaz.</p>
+<p class="lang">English</p>
+<p>Abstract uses browser storage to support essential functionality and remember preferences. Not all browser storage is technically an HTTP cookie; localStorage and similar technologies can also store or access information on a device. Essential storage may support app settings, saved papers, folders, reading history, guest preferences and Supabase authentication sessions.</p>
+<p>Optional PostHog analytics is intended to load only after you accept it. It may receive app interaction events. Automatic capture and session recording are disabled in the current configuration. You can reject optional analytics initially and change your choice later using the in-app “Privacy settings” control. Blocking essential storage may affect sign-in and synchronization. The exact storage-key inventory and lifetimes must be verified in the deployed application.</p>
+</section>
+
+<hr><section id="terms">
+<h2>3. Kullanım Koşulları / Terms of Use</h2>
+<h3>Hizmetin kapsamı</h3>
+<p>Abstract, akademik yayınları keşfetmeye ve kişisel okuma listeleri oluşturmaya yarayan bir arayüzdür. Bibliyografik kayıtlar, özetler, bağlantılar ve diğer yayın bilgileri OpenAlex gibi üçüncü taraf kaynaklardan gelebilir. Abstract bu yayınların yazarı, yayıncısı veya bilimsel doğrulayıcısı değildir. Tam metne erişim ilgili yayıncının veya açık erişim sağlayıcısının koşullarına tabidir.</p>
+<h3>Kullanıcı sorumlulukları</h3>
+<ul>
+<li>Hesap bilgilerinizi doğru tutmalı ve oturum bilgilerinizi korumalısınız.</li>
+<li>Hizmeti hukuka aykırı amaçlarla, başkalarının haklarını ihlal edecek veya hizmetin güvenliğini/erişilebilirliğini bozacak şekilde kullanmamalısınız.</li>
+<li>Yetkisiz erişim girişiminde bulunmamalı; aşırı otomatik istek, veri kazıma veya benzeri yöntemlerle Abstract'ın ya da üçüncü taraf sağlayıcıların kurallarını ihlal etmemelisiniz.</li>
+<li>Başkalarına ait kişisel verileri veya fikrî mülkiyet haklarını ihlal eden içerikleri yüklememelisiniz.</li>
+</ul>
+<h3>Fikrî mülkiyet ve hizmetin sunulması</h3>
+<p>Abstract arayüzü, tasarımı, yazılımı ve özgün unsurları, aksi belirtilmedikçe yayıncıya aittir. Üçüncü taraf yayınlar ve metadata ilgili hak sahiplerinin koşullarına tabidir. Hizmet mevcut hâliyle ve erişilebilir olduğu ölçüde sunulur; kesintisiz çalışma veya üçüncü taraf kayıtlarının eksiksiz, doğru ve güncel olması garanti edilmez. Bu koşullar, uygulanabilir emredici hukuk kapsamındaki hakları ortadan kaldırmaz.</p>
+<h3>Hesap ve koşul değişiklikleri</h3>
+<p>Uygulama içindeki çıkış işlemi, hesabı veya sunucudaki tüm verileri silmez. Tam hesap ve veri silme talebi için ayrı, doğrulanmış bir süreç oluşturulmalıdır. Koşullar hizmet veya mevzuat değiştikçe güncellenebilir. Uygulanacak hukuk ve yetkili merci, yayıncının yerleşimi ve kullanıcıların bulunduğu ülkelerdeki emredici kurallar dikkate alınarak belirlenmelidir.</p>
+<p class="lang">English</p>
+<p>Abstract is an interface for discovering scholarly works and organizing personal reading lists. Bibliographic records and publication information may come from OpenAlex or other third-party sources. Abstract is not the author, publisher or scientific verifier of those works. Full-text access is subject to the relevant publisher's or open-access provider's terms.</p>
+<p>You must keep account details accurate and credentials secure. Do not use the service unlawfully, infringe others' rights, interfere with security or availability, attempt unauthorized access, or violate third-party provider terms through excessive automated requests or scraping. The Abstract interface, design, software and original elements belong to the publisher unless stated otherwise; third-party publications and metadata remain subject to their owners' rights and licences.</p>
+<p>The service is provided as available. Uninterrupted operation and the accuracy or completeness of third-party records are not guaranteed. Mandatory statutory rights remain unaffected. Signing out does not delete your account or all server-side data. Applicable law and jurisdiction must be determined in light of the publisher's establishment and mandatory laws in users' locations.</p>
+</section>
+
+<hr><section id="kvkk">
+<h2>4. KVKK Aydınlatma Metni</h2>
+<p><strong>Veri sorumlusu:</strong> Binali (bireysel yayıncı).<br><strong>İletişim:</strong> İletişim kanalı daha sonra eklenecektir.</p>
+<h3>İşlenen kişisel veri kategorileri</h3>
+<p>Kimlik ve hesap (e-posta, Supabase kullanıcı kimliği, görünen ad, Google ile girişte temel profil bilgileri); profil görseli; kullanıcı işlem ve tercihleri (beğeniler, klasörler, okuma geçmişi, okuma serisi, ayarlar); oturum/teknik güvenlik verileri; OpenAlex'e iletilen arama terimleri ve filtreler; analitik izni verilirse PostHog kullanım olayları.</p>
+<h3>İşleme amaçları</h3>
+<p>Hesap oluşturma ve yönetme, kimlik doğrulama, kullanıcı kütüphanesini ve tercihlerini saklama/eşitleme, profil görselini gösterme, akademik yayın arama, güvenliği sağlama, teknik sorunları giderme ve yalnızca izin verilirse analitik istatistik üretme.</p>
+<h3>Toplama yöntemi, aktarım yapılan taraflar ve hukuki sebep</h3>
+<p>Veriler; kullanıcı tarafından girilen bilgiler, profil fotoğrafı yüklemeleri, uygulama kullanımı, tarayıcı depolaması, kimlik doğrulama sağlayıcısı ve API istekleri aracılığıyla elektronik ortamda toplanabilir. İşlevlerine göre Supabase, Google, OpenAlex ve analitik kabul edilirse PostHog alıcı/hizmet sağlayıcı olabilir. Sunucu bölgeleri, alt işleyenler ve yurt dışı aktarım mekanizmaları doğrulanmalıdır.</p>
+<p>KVKK m.5 kapsamındaki işleme şartı her amaç için ayrıca belirlenmelidir. Somut faaliyete göre sözleşmenin kurulması/ifası, hukuki yükümlülük, hakkın tesisi/kullanılması/korunması, koşulları varsa meşru menfaat ve isteğe bağlı analitik için açık rıza gündeme gelebilir. Bu metin kesin hukuki dayanak eşleştirmesinin yerine geçmez.</p>
+<h3>Saklama ve ilgili kişi hakları</h3>
+<p>Kesin saklama süreleri ve yedeklerin silinme döngüsü belirlenip doğrulanmalıdır. KVKK m.11 kapsamında kişisel verilerin işlenip işlenmediğini öğrenme, bilgi talep etme, amaç ve aktarım taraflarını öğrenme, düzeltme, şartları oluştuğunda silme/yok etme, aktarılan üçüncü kişilere bildirim yapılmasını isteme, münhasıran otomatik analiz sonucu aleyhe sonuca itiraz etme ve kanuna aykırı işleme nedeniyle zarar varsa giderim talep etme hakları bulunur. Başvuru: <strong>İletişim kanalı daha sonra eklenecektir.</strong></p>
+<p class="lang">English summary</p>
+<p>Controller: Binali (individual publisher). Contact: A contact channel will be provided at a later date. Data may include account email and identifiers, display name, Google sign-in profile information, avatar, saved papers, folders, reading history, reading streak, settings, authentication/technical data, search terms sent to OpenAlex and optional PostHog analytics events. Purposes include account management, synchronization, profile display, scholarly search, security and optional analytics. Potential recipients include Supabase, Google, OpenAlex and PostHog if analytics is accepted. Legal bases, hosting locations, transfer mechanisms and retention periods must be verified. Rights under Article 11 include access, information, correction, erasure where applicable, notification of recipients, objection to certain automated outcomes and compensation where statutory conditions are met.</p>
+</section>
+
+<hr><section id="gdpr">
+<h2>5. GDPR Gizlilik ve Veri İşleme Açıklaması / GDPR Privacy Notice</h2>
+<h3>Controller / Veri sorumlusu</h3>
+<p>Controller: Binali (individual publisher). Contact: A contact channel will be provided at a later date. Whether an EU representative under GDPR Article 27 or a Data Protection Officer is required must be assessed based on the controller's establishment, activities and scale of processing. No representative or DPO is identified in this draft.</p>
+<h3>Data, purposes and legal bases</h3>
+<p>Data may include account email, Supabase user ID, display name and Google sign-in profile information; uploaded avatar; saved papers, folders, reading history, streak and settings; search terms/filters sent to OpenAlex; and PostHog usage events only after analytics opt-in. Purposes include account administration, synchronization, profile display, scholarly search, security and optional analytics.</p>
+<p>The Article 6 legal basis must be selected and documented separately for each purpose. Depending on the actual circumstances, possible bases may include performance of a contract, compliance with a legal obligation, legitimate interests where permitted, and consent for optional analytics. This draft does not assert one blanket legal basis.</p>
+<h3>Recipients and international transfers</h3>
+<p>Potential providers are Supabase, Google, OpenAlex and PostHog (only after analytics opt-in). Their actual hosting locations, processor agreements, subprocessors and transfer instruments have not yet been verified. Any transfer outside the EEA must meet GDPR Chapter V, including an applicable adequacy decision or appropriate safeguards under Article 46 where required. No specific safeguard is claimed here.</p>
+<h3>Retention and data subject rights</h3>
+<p>Exact retention periods, backup deletion cycles and complete account/avatar deletion workflows must be documented. Subject to GDPR conditions, you may request access, rectification, erasure, restriction, data portability, object to processing based on legitimate interests, withdraw consent without affecting prior lawful processing, and lodge a complaint with a competent supervisory authority. Contact: <strong>A contact channel will be provided at a later date.</strong></p>
+<p class="lang">Türkçe özet</p>
+<p>GDPR'ın uygulanabildiği durumlarda veri sorumlusu Binali'dir (bireysel yayıncı). İletişim kanalı daha sonra eklenecektir. Hesap, profil, beğeni, klasör, okuma geçmişi, ayar, arama ve izin verilirse analitik verileri işlenebilir. Supabase, Google, OpenAlex ve PostHog olası hizmet sağlayıcılardır. GDPR m.6 hukuki sebepleri, m.27 temsilci gerekliliği, veri işleme sözleşmeleri, AEA dışına aktarım güvenceleri ve saklama süreleri fiilî durum üzerinden doğrulanmalıdır. GDPR kapsamındaki erişim, düzeltme, silme, kısıtlama, taşınabilirlik, itiraz, rızayı geri çekme ve denetim makamına şikâyet hakları saklıdır.</p>
+</section>
+
+<hr><section>
+<h2>Yayın Öncesi Doğrulama Listesi</h2>
+<ul>
+<li>“Binali” ifadesi yerine veri sorumlusunun hukuken gerekli tam adı ve uygun iletişim kanalı eklenmeli.</li>
+<li>Supabase veri merkezi bölgesi, veri işleme sözleşmesi, alt işleyenler, RLS kuralları ve avatars bucket erişim modeli doğrulanmalı.</li>
+<li>Google OAuth kapsamları ve Google ile veri paylaşımı/aktarımı kontrol edilmeli.</li>
+<li>PostHog ret halinde hiç yüklenmiyor mu, tercih geri çekilince analitik duruyor mu test edilmeli.</li>
+<li>Tarayıcı depolama anahtarları, amaçları ve ömürleri teknik envantere yazılmalı.</li>
+<li>OpenAlex'e iletilen sorgu verileri ve sağlayıcı log saklama koşulları kontrol edilmeli.</li>
+<li>Hesap, profil görseli, veritabanı kaydı ve yedekler için uçtan uca silme süreci kurulmalı.</li>
+<li>KVKK yurt dışı aktarım mekanizması ve GDPR Bölüm V güvenceleri, gerçek sunucu bölgelerine göre belirlenmeli.</li>
+<li>AB temsilcisi gerekliliği ve uygulanacak hukuk değerlendirilmelidir.</li>
+<li>Metinler gerçek dağıtım, sağlayıcı sözleşmeleri ve hukukçu incelemesiyle son hâle getirilmeli.</li>
+</ul>
+</section>
+<footer>Abstract — Yasal bilgilendirme taslağı. Bu sayfa hukuki danışmanlık değildir. / Abstract — Legal information draft. This page is not legal advice.</footer>
+</main></body></html>

@@ -62,13 +62,29 @@ class SoundEffectsManager {
     node.start(t);
   }
 
+  /** Kısa, özgün açılış melodisi. Yalnızca kullanıcı etkileşimiyle çağrılır. */
+  public playOpening() {
+    if (!this.enabled || !this.init()) return;
+    try {
+      const t = this.ctx!.currentTime + 0.04;
+      const notes = [
+        { f: 523.25, at: 0, d: 0.42, v: 0.12 },
+        { f: 659.25, at: 0.22, d: 0.48, v: 0.105 },
+        { f: 783.99, at: 0.48, d: 0.58, v: 0.10 },
+        { f: 1046.5, at: 0.82, d: 0.9, v: 0.075 },
+        { f: 783.99, at: 1.28, d: 0.72, v: 0.055 }
+      ];
+      notes.forEach(n => this.tone('sine', n.f, n.f * 1.002, t + n.at, n.d, n.v));
+      this.tone('triangle', 261.63, 261.63, t + 0.02, 1.45, 0.035);
+    } catch {}
+  }
+
   public right() {
     if (!this.enabled || !this.init()) return;
     try {
       const t = this.ctx!.currentTime;
-      this.tone('sine', 660, 990, t, 0.16, 0.35);
-      this.tone('sine', 990, 1480, t + 0.09, 0.22, 0.3);
-      this.tone('triangle', 1320, 1320, t + 0.09, 0.3, 0.08);
+      this.tone('sine', 740, 988, t, 0.11, 0.16);
+      this.tone('sine', 988, 1175, t + 0.055, 0.14, 0.11);
     } catch {}
   }
 
@@ -76,8 +92,8 @@ class SoundEffectsManager {
     if (!this.enabled || !this.init()) return;
     try {
       const t = this.ctx!.currentTime;
-      this.tone('triangle', 300, 110, t, 0.2, 0.3);
-      this.sweep(1800, 300, t, 0.22, 0.5, 1.2);
+      this.tone('sine', 440, 330, t, 0.13, 0.12);
+      this.sweep(900, 420, t, 0.13, 0.12, 1.2);
     } catch {}
   }
 
@@ -85,8 +101,8 @@ class SoundEffectsManager {
     if (!this.enabled || !this.init()) return;
     try {
       const t = this.ctx!.currentTime;
-      this.sweep(300, 3000, t, 0.32, 0.5, 2.5);
-      this.tone('sine', 420, 840, t, 0.3, 0.14);
+      this.sweep(420, 1800, t, 0.22, 0.16, 2.5);
+      this.tone('sine', 523, 784, t, 0.22, 0.10);
     } catch {}
   }
 }

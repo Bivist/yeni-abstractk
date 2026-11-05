@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import { Paper } from '../types';
 import { SFX } from '../utils/sfx';
 import { toneFor, plainSummary } from '../utils/tone';
-import { SlidersHorizontal, ArrowUp, Heart, X, Share2 } from 'lucide-react';
+import { SlidersHorizontal, ArrowUp, Heart, X, Share2, Sparkles } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { EmptyDeck } from './EmptyDeck';
 
@@ -18,6 +18,7 @@ interface DiscoverClassicProps {
   hasMore: boolean;
   onResetFilter?: () => void;
   onSharePaper?: (paper: Paper) => void;
+  recommendationActive?: boolean;
 }
 
 export const DiscoverClassic: React.FC<DiscoverClassicProps> = ({
@@ -30,7 +31,8 @@ export const DiscoverClassic: React.FC<DiscoverClassicProps> = ({
   isTranslating,
   langDict,
   onResetFilter,
-  onSharePaper
+  onSharePaper,
+  recommendationActive = false
 }) => {
   const topPaper = queue[0];
   const behindPaper = queue[1];
@@ -87,6 +89,7 @@ export const DiscoverClassic: React.FC<DiscoverClassicProps> = ({
     <div className="flex-1 flex flex-col h-full overflow-hidden select-none max-w-lg min-[900px]:max-w-4xl mx-auto w-full">
       {/* Filtre özeti */}
       <div className="flex items-center gap-2 px-4 pb-3 shrink-0">
+        {recommendationActive && <span className="chip bg-t1 text-on-tone !py-2 !px-2.5 shrink-0" title="Beğenilerin ve okuma geçmişinle kişiselleştirildi"><Sparkles className="w-3.5 h-3.5" /> Sana özel</span>}
         <span className="chip bg-soft !text-ink flex-1 min-w-0 !justify-start !py-2.5 !text-sm !font-semibold">
           <span className="truncate">{plainSummary(filterSummary || langDict.sum_default || 'Tüm alanlar, rastgele')}</span>
         </span>

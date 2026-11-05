@@ -1,6 +1,6 @@
 import React from 'react';
 import { TabId } from '../types';
-import { Home, Heart, Compass, Activity, Settings, Lock } from 'lucide-react';
+import { Home, Heart, Compass, Activity, Settings } from 'lucide-react';
 
 interface BottomNavProps {
   currentTab: TabId;
@@ -53,7 +53,7 @@ export const BottomNav: React.FC<BottomNavProps> = ({ currentTab, onSelectTab, l
             )}
             <span className={`${desktop ? "text-sm" : "text-[11px]"} leading-none ${active ? 'font-extrabold text-ink' : 'font-semibold text-mute'}`}>
               {langDict[labelKey]}
-              {id === 'dashboard' && <Lock className="inline w-2.5 h-2.5 ml-0.5 -mt-0.5 opacity-70" />}
+              
             </span>
           </button>
         );

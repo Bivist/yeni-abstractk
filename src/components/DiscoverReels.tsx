@@ -3,7 +3,7 @@ import { Paper } from '../types';
 import { SFX } from '../utils/sfx';
 import { toneFor, plainSummary } from '../utils/tone';
 import { motion, AnimatePresence } from 'motion/react';
-import { Heart, Info, ExternalLink, ChevronDown, Share2, SlidersHorizontal } from 'lucide-react';
+import { Heart, Info, ExternalLink, ChevronDown, Share2, SlidersHorizontal, Sparkles } from 'lucide-react';
 import { EmptyDeck } from './EmptyDeck';
 
 interface DiscoverReelsProps {
@@ -19,6 +19,7 @@ interface DiscoverReelsProps {
   langDict: Record<string, string>;
   onResetFilter?: () => void;
   onSharePaper?: (paper: Paper) => void;
+  recommendationActive?: boolean;
 }
 
 const railBtn =
@@ -36,7 +37,8 @@ export const DiscoverReels: React.FC<DiscoverReelsProps> = ({
   isTranslating,
   langDict,
   onResetFilter,
-  onSharePaper
+  onSharePaper,
+  recommendationActive = false
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [heartBurst, setHeartBurst] = useState(false);
@@ -131,6 +133,7 @@ export const DiscoverReels: React.FC<DiscoverReelsProps> = ({
     <div ref={containerRef} data-tour="disc-stage" className="flex-1 flex flex-col h-full overflow-hidden select-none relative max-w-lg min-[900px]:max-w-4xl mx-auto w-full">
       {/* Filtre özeti */}
       <div className="flex items-center gap-2 px-4 pb-3 shrink-0">
+        {recommendationActive && <span className="chip bg-t1 text-on-tone !py-2 !px-2.5 shrink-0" title="Beğenilerin ve okuma geçmişinle kişiselleştirildi"><Sparkles className="w-3.5 h-3.5" /> Sana özel</span>}
         <span className="chip bg-soft !text-ink flex-1 min-w-0 !justify-start !py-2.5 !text-sm !font-semibold">
           <span className="truncate">{plainSummary(filterSummary || langDict.sum_default || 'Tüm alanlar')}</span>
         </span>

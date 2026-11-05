@@ -630,7 +630,7 @@ export default function App() {
     if (!queue.length) return;
     registerSwipeForSpeedCheck();
     const paper = queue[0];
-    trackPaperRead();
+    trackPaperRead(paper);
     if (dir > 0) {
       // LIKE
       SFX.right();
@@ -651,7 +651,7 @@ export default function App() {
   // Like Paper Handler (Reels mode & Buttons)
   const handleLikePaper = (paper: Paper) => {
     registerSwipeForSpeedCheck();
-    trackPaperRead();
+    trackPaperRead(paper);
     if (!likedPapers.some(p => p.id === paper.id)) {
       trackEvent('paper_liked', { paper_id: paper.id, source: 'reels' });
       setLikedPapers(prev => [paper, ...prev]);
@@ -827,6 +827,7 @@ export default function App() {
               langDict={langDict}
               onResetFilter={handleResetFilter}
               onSharePaper={handleSharePaper}
+              recommendationActive={likedPapers.length > 0 || readingHistory.length > 0}
             />
           ) : (
             <DiscoverClassic
@@ -844,6 +845,7 @@ export default function App() {
               hasMore={queue.length > 0}
               onResetFilter={handleResetFilter}
               onSharePaper={handleSharePaper}
+              recommendationActive={likedPapers.length > 0 || readingHistory.length > 0}
             />
           )
         )}

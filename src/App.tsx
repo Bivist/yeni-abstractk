@@ -770,6 +770,7 @@ export default function App() {
         <IntroSplash
           onComplete={() => setShowSplash(false)}
           lang={settings.lang}
+          onStartAudio={() => SFX.playOpening()}
         />
       )}
 

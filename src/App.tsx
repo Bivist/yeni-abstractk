@@ -13,6 +13,7 @@ import { authEnabled } from './lib/supabase';
 import { pullCloud, pushCloud, mergeSnapshots, type UserSnapshot } from './utils/cloudSync';
 import { signOutUser, updateDisplayName, uploadAvatar, removeAvatar } from './utils/auth';
 import { trackEvent } from './utils/analytics';
+import { rankPapersForUser } from './utils/recommendations';
 import { CookieConsent } from './components/CookieConsent';
 
 import { IntroSplash } from './components/IntroSplash';
@@ -152,6 +153,12 @@ export default function App() {
   const [likedPapers, setLikedPapers] = useState<Paper[]>(() => loadLikedPapers());
 
   const [folders, setFolders] = useState<Record<string, string[]>>(() => loadFolders());
+
+  // Öneri motoru, fetch callback'i yeniden oluşturulmadan en güncel profili kullanır.
+  const likedProfileRef = useRef(likedPapers);
+  const historyProfileRef = useRef(readingHistory);
+  likedProfileRef.current = likedPapers;
+  historyProfileRef.current = readingHistory;
 
   // Paper Queue & Pagination state
   const [queue, setQueue] = useState<Paper[]>([]);
@@ -538,7 +545,8 @@ export default function App() {
           } else if (tier.kind === 'one' && tiersRef.current.some((candidate: any) => candidate.kind === 'all' || candidate.kind === 'part')) {
             setNotice(`Seçtiğin alanların tamamında ortak yayın bulunamadı. Şu anda yayın bulunan “${tier.label}” alanındaki makaleler gösteriliyor.`);
           }
-          setQueue(prev => [...prev, ...papers]);
+          const personalized = rankPapersForUser(papers, likedProfileRef.current, historyProfileRef.current);
+          setQueue(prev => [...prev, ...personalized]);
           break;
         }
 

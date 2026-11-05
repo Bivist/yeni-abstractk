@@ -5,9 +5,10 @@ import { LogoMark } from './Logo';
 interface IntroSplashProps {
   onComplete: () => void;
   lang?: 'tr' | 'en';
+  onStartAudio?: () => void;
 }
 
-export const IntroSplash: React.FC<IntroSplashProps> = ({ onComplete, lang = 'tr' }) => {
+export const IntroSplash: React.FC<IntroSplashProps> = ({ onComplete, lang = 'tr', onStartAudio }) => {
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
@@ -23,7 +24,7 @@ export const IntroSplash: React.FC<IntroSplashProps> = ({ onComplete, lang = 'tr
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
-          onClick={() => setVisible(false)}
+          onClick={() => { onStartAudio?.(); setVisible(false); }}
           className="fixed inset-0 z-50 flex flex-col items-center justify-center gap-6 bg-paper cursor-pointer select-none"
         >
           <motion.div
@@ -52,7 +53,7 @@ export const IntroSplash: React.FC<IntroSplashProps> = ({ onComplete, lang = 'tr
 
           <button
             type="button"
-            onClick={(e) => { e.stopPropagation(); setVisible(false); }}
+            onClick={(e) => { e.stopPropagation(); onStartAudio?.(); setVisible(false); }}
             className="btn btn-ghost absolute bottom-10 right-6"
           >
             {lang === 'en' ? 'Skip' : 'Geç'}
